@@ -7,7 +7,7 @@ load_dotenv()
 
 def create_app():
     app=Flask(__name__)
-    client= MongoClient("mongodb+srv://aashishchachan:cH19sH@cluster0.fstu1.mongodb.net/test?authSource=admin&replicaSet=atlas-ikrm4f-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true")
+    client= MongoClient(os.environ.get("MONGODB_URI"))
     app.db=client.user_data
 
     @app.route('/')
